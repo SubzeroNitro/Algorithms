@@ -1,2 +1,2 @@
 # Algorithms
-A compilation of all my Leetcode or HackerRank solutions.
+A compilation of all my Leetcode and HackerRank solutions.
