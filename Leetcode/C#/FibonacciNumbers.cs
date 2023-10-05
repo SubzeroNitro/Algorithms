@@ -1,19 +1,24 @@
-static Dictionary<int, int> fibonacciNumbers = new Dictionary<int, int>();
+static Dictionary<int, int> fibonacciNumbers = new Dictionary<int, int>
+{ 
+    { 0, 0 },
+    { 1, 1 }
+};
 
 public int Fib(int n)
 {
-    if (n <= 1)
-    {
-        return n;
-    }
-
     if (fibonacciNumbers.ContainsKey(n))
     {
         return fibonacciNumbers[n];
     }    
 
-    int number = Fib(n - 1) + Fib(n - 2);
-    fibonacciNumbers.Add(n, number);
+    int count = fibonacciNumbers.Count;
+    int sum = fibonacciNumbers[count - 2];
 
-    return number;
+    for (int i = count; i <= n; i++)
+    {
+        sum += fibonacciNumbers[count - 1];
+        fibonacciNumbers.Add(i, sum);
+    }
+
+    return sum;
 }
